@@ -1,0 +1,23 @@
+h1{
+    background-color: green;
+}
+p{
+    color: red;
+    background-color: yellow;
+}
+.btn{
+    background-color: salmon;
+    width: 150px;
+    color:black;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+.btn:hover{
+    color:salmon;
+    background-color: black;
+}
+
+.myblue{
+    background-color: aqua;
+}
