@@ -1,0 +1,28 @@
+body{
+    height: 100vh;
+    background-image: linear-gradient( 50deg , red, yellow, green);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.shadow{
+    text-shadow: 20px 10px 2px blue;
+}
+
+.scalex{
+    width: 100px;
+    background-color: chocolate;
+    transform: scaleX(2);
+}
+
+.translate{
+    width: 100px;
+    background-color: chocolate;
+    transform: translate(100px, 100px);
+}
+
+.rotate{
+    width: 100px;
+    background-color: chocolate;
+    transform: rotate(45deg);
+}

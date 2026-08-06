@@ -1,0 +1,26 @@
+div {
+  width: 200px;
+  height: 200px;
+  background-color: blueviolet;
+}
+div:hover {
+  animation: my-animation;
+  animation-duration: 3s;
+  animation-iteration-count: 5;
+}
+
+
+@keyframes my-animation {
+    0% {
+        background-color: blueviolet;
+    }
+    30% {
+        background-color: green;
+    }
+    60% {
+        background-color: yellow;
+    }
+    100% {
+        background-color: blueviolet;
+    }
+}
