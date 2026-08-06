@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+.box{
+    width: 300px;
+    background-color: yellow;
+}
+
+.box2{
+    width: 300px;
+    background-color: yellow;
+    margin-top: 10px;
+    padding: 30px;
+}

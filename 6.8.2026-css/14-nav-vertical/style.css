@@ -1,0 +1,22 @@
+.nav {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  background-color: chocolate;
+  width: 250px;
+
+  }
+  .nav li a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    padding: 10px 10px;
+      
+    
+  }
+  .nav li a:hover{
+    background-color: white;
+    color: chocolate;
+  }
+
