@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-image: url("cat.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+   width: 200px;
+  color: darkblue;
+  background-color: rgb(74, 143, 79);
+  padding: 10px;
+  border-radius: 8px;
+  
+}
+
+p {
+  color: #444;
+  font-size: 18px;
+}
+
+img {
+  width: 200px;
+  border: 20px solid greenyellow;
+  border-radius: 10px;
+}

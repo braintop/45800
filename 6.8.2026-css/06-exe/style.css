@@ -1,0 +1,40 @@
+.border{
+  border:4px solid red;
+}
+
+/* p{
+  border-top: 2px dotted black;
+  border-bottom: 6px dotted black;
+  border-left: 15px dotted black;
+  border-right: 20px dotted black;
+} */
+
+/* .myparagraph{
+  border-top: 2px dotted black;
+  border-bottom: 6px dotted black;
+  border-left: 15px dotted black;
+  border-right: 20px dotted black;
+
+} */
+
+/* .border .myparagraph{
+  border-top: 2px dotted black;
+  border-bottom: 6px dotted black;
+  border-left: 15px dotted black;
+  border-right: 20px dotted black;
+} */
+
+/* .border>p{
+  border-top: 2px dotted black;
+  border-bottom: 6px dotted black;
+  border-left: 15px dotted black;
+  border-right: 20px dotted black;
+}  */
+
+.border  p:nth-child(3){
+  border-top: 2px dotted blue;
+  border-bottom: 6px dotted blue;
+  border-left: 15px dotted blue;
+  border-right: 20px dotted blue;
+}
+
