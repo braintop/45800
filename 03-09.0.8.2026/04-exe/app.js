@@ -6,7 +6,6 @@ function square(){
     alert("The square of the number is " + square);
 }
 
-square();
 
 //Write a function that takes two numbers and alert the sum of the two numbers
 
@@ -17,4 +16,3 @@ function sum(){
     alert("The sum of the two numbers is " + s);
 }
 
-sum();
