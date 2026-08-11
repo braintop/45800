@@ -9,4 +9,5 @@ function averageOfNNumbers() {
   }
   let average = sum / count;
   alert("Average of numbers is: " + average);
+  document.getElementById("result").innerHTML = "Average of numbers is: " + average;
 }
