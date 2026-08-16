@@ -1,0 +1,13 @@
+.active{
+    color: red;
+}
+.visible{
+    display: block;
+}
+.hidden{
+    display: none;
+}
+
+.font-size-16{
+    font-size: 40px;
+}

@@ -4,7 +4,7 @@ let student = {
     city: 'New York'
 }
 
-console.log(student);
+console.log(student);//{ name: 'John', age: 20, city: 'New York' }
 student.grade = 'A';
 student.country = 'USA';    
 
@@ -15,7 +15,7 @@ student.age = 80;
 console.log(student);//{ name: 'John', age: 80, city: 'New York', country: 'USA' }
 
 
-delete student.age;
+delete student.age;//{ name: 'John', city: 'New York', country: 'USA' }
 console.log(student);//{ name: 'John', city: 'New York', country: 'USA' }
 
 const user = { name: "Alice", age: 25, role: "admin" };
@@ -25,10 +25,10 @@ for (let key in user) {
   console.log(`${key}: ${user[key]}`);
 }
 
-let keys = Object.keys(user);
+let keys = Object.keys(user);//[ 'name', 'age', 'role' ]
 console.log(keys);//[ 'name', 'age', 'role' ]
 
-let values = Object.values(user);
+let values = Object.values(user);//[ 'Alice', 25, 'admin' ]
 console.log(values);//[ 'Alice', 25, 'admin' ]
 
 let entries = Object.entries(user);

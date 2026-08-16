@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onclick="changeAllPColorToGreen()"> 
+        <div id="app">
+            <p>Hello World</p>
+            <p  class="name">My name is Oren Cohen</p>
+            <p class="love">I Love JavaScript</p>  
+            <button onclick="changeNameColor()">
+                Change Name Color
+            </button>
+
+        </div>
+
+
+        <button onclick="changeFirstPColor()">change first paragraphs color to blue </button>
+        <button onclick="changeAllPColor()">change all paragraphs color to blue </button>
+        <button onclick="changeClassLoveToRed()">change class love color to red </button>
+
+        <div class="mydiv" onclick="changeMyColor(event)">
+            <p style="border: 1px solid black;">Hello World</p>
+            <p onclick="changeAllPColorToGreen()" style="border: 1px solid black;">My name is Oren Cohen</p>
+            <p style="border: 1px solid black;">I Love JavaScript</p>  
+        </div>
+        <br>
+       
+        <button onclick="changeAllPColorToGreen()">change all paragraphs color to green </button>
+        <br>
+
+        <button onclick="changeAllBackgroundToLightBlue()">change all paragraphs background to light blue </button>
+        <br>
+
+        <button onclick="chanheAllParagraphsToFontSize30()">change all paragraphs font size to 30 </button>
+    
+        <script src="app.js"></script>
+</body>
+</html>

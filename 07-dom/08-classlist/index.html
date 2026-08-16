@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <p  id="my-paragraph">You have clicked the button 0 times.</p>
+    <button  id="activate-paragraph-btn" onclick="activateParagraph()">Activate Paragraph</button>
+    <button id="deactivate-paragraph-btn" onclick="deactivateParagraph()">Deactivate Paragraph</button>
+    <button id="toggle-paragraph-btn" onclick="toggleParagraph()">Toggle Paragraph</button>
+    <button id="hide-paragraph-btn" onclick="hideParagraph()">Hide Paragraph</button>
+    <button id="show-paragraph-btn" onclick="showParagraph()">Show Paragraph</button>
+   <script>
+        
+
+    function activateParagraph(){
+        let myParagraph = document.querySelector("#my-paragraph");
+        myParagraph.classList.add("active");
+        myParagraph.classList.add("font-size-16");
+    }
+    function deactivateParagraph(){
+        let myParagraph = document.querySelector("#my-paragraph");
+        myParagraph.classList.remove("active");
+    }
+    function hideParagraph(){
+        let myParagraph = document.querySelector("#my-paragraph");
+        myParagraph.classList.add("hidden");
+    }
+    function showParagraph(){
+        let myParagraph = document.querySelector("#my-paragraph");
+        myParagraph.classList.remove("hidden");
+    }
+    </script>
+
+
+</body>
+
+</html>

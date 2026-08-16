@@ -3,7 +3,7 @@ function square(n){
 }
 
 let s1 = square(5);//25
-let s2 = square(36);//25
+let s2 = square(36);//1296
 
 console.log(s1,s2);
 
@@ -17,7 +17,7 @@ let g2 = greet("Jane");//Hello, Jane!
 console.log(g1);
 console.log(g2);
 
-function max(a,b){
+function max(a, b){
     if(a>b){
         return a;
     }else{
@@ -39,8 +39,8 @@ function sunTillN(n){
     return sum;
 }
 
-let n = +prompt("Enter a number");//10 
-let s = sunTillN(n);// 1+2+3+4+5+6+7+8+9+10 = 55
+let n1 = +prompt("Enter a number");//10 
+let s = sunTillN(n1);// 1+2+3+4+5+6+7+8+9+10 = 55
 console.log(s);
 
 function printTill1(n){

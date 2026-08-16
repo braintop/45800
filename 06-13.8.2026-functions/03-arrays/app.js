@@ -14,7 +14,13 @@ printArray(myfriends);//John, Jane, Jim, Jill, Jack
 let numbers = [1,2,3,4,5,6,7,8,9,10];
 printArray(numbers);//1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
-
+function changeFirstNumberByValue(n){
+    n = 100;
+    
+}
+let x = 10;
+changeFirstNumberByValue(x);
+console.log(x);//10
 function changeFirstNumber(arr){
     arr[0] = 100;
     arr[arr.length-1] = 200;
