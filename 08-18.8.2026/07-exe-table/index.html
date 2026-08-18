@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type-"text" id="friendname" placeholder="Friendname">
+    <button onclick="addFriend()">Add Friend</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Friendname</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+
+    <script>
+        function addFriend() {
+            let friendname = document.getElementById("friendname").value;
+            let friends = JSON.parse(localStorage.getItem("friends")) || [];
+            friends.push(friendname);
+            localStorage.setItem("friends", JSON.stringify(friends));
+            let row = document.createElement("tr");
+            let cell1 = document.createElement("td");
+            cell1.innerHTML = friendname;
+            row.appendChild(cell1);
+            document.querySelector("tbody").appendChild(row);
+            document.getElementById("friendname").value = "";
+        }
+        function loadFriends() {
+            let friends = JSON.parse(localStorage.getItem("friends")) || [];
+            for (let i = 0; i < friends.length; i++) {
+                let friendname = friends[i];
+                let row = document.createElement("tr");
+                let cell1 = document.createElement("td");
+                cell1.innerHTML = friendname;
+                row.appendChild(cell1);
+                document.querySelector("tbody").appendChild(row);
+            }
+        }
+        loadFriends();
+    </script>
+</body>
+</html>

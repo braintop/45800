@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type-"text" id="friendname" placeholder="Friendname">
+    <button onclick="addFriend()">Add Friend</button>
+    <ul>
+    </ul>
+
+
+
+    <script>
+        function addFriend() {
+            let friendname = document.getElementById("friendname").value;
+            let friends = JSON.parse(localStorage.getItem("friends")) || [];
+            friends.push(friendname);
+            localStorage.setItem("friends", JSON.stringify(friends));
+            let li = document.createElement("li");
+            li.innerHTML = friendname;
+            document.querySelector("ul").appendChild(li);
+            document.getElementById("friendname").value = "";
+        }
+        function loadFriends() {
+            let friends = JSON.parse(localStorage.getItem("friends")) || [];
+            for (let i = 0; i < friends.length; i++) {
+                let friendname = friends[i];
+                let li = document.createElement("li");
+                li.innerHTML = friendname;
+                document.querySelector("ul").appendChild(li);
+            }
+        }
+        loadFriends();
+    </script>
+</body>
+</html>
