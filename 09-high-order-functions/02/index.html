@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        let numbers = [1, 2, 3, 4, 5, 59, 80, 1];
+        // let clone = [];
+        // for (let i = 0; i < numbers.length; i++) {
+        //     clone.push(numbers[i]);
+        // }
+        // console.log(clone);//[1, 2, 3, 4, 5, 59, 80, 1]
+
+        let arr = numbers;
+        console.log(arr);//[1, 2, 3, 4, 5, 59, 80, 1]
+        numbers[0] = 100;
+        console.log(arr);//[100, 2, 3, 4, 5, 59, 80, 1
+
+        let cloneArr = [...numbers];
+        cloneArr[0] = 200;
+        console.log(numbers);
+
+
+
+        let numbers2 = new Set([1, 2, 3, 2, 4, 1, 5, 3, 6]);
+        console.log(numbers2);//Set(6) { 1, 2, 3, 4, 5, 6 }
+        numbers2 = [...numbers2];//[Set(6) { 1, 2, 3, 4, 5, 6 }] //
+
+
+        //x =  [a,b,c,d] , [...x] = [a,b,c,d]
+        //x  = [a,b,c,d], [x] // [ [a,b,c,d] ]
+
+
+        let y = [1, 2, 3, 4, 5, 6].map(number => number * number) // [1,4,9,16,25,36]
+        console.log(y);//[1,4,9,16,25,36]
+
+
+        let a = [1, 2, 3, 4, 5, 6].reduce((acc, number) => acc + number, 0) // 21
+        console.log(a);//21
+
+        let group = new Set([1, 2, 3, 4, 5, 6]);//Set(6) { 1, 2, 3, 4, 5, 6 }
+
+
+
+
+        // Copy an object
+        const person = { name: "Alice", age: 25 };
+        const updated1 = { ...person, age: 26, city: "Tel Aviv" };
+        console.log(updated1);
+      // { name: "Alice", age: 26, city: "Tel Aviv" }
+
+    </script>
+</body>
+
+</html>

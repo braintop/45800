@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        // map-basics.js
+
+        // 1. Create a Map
+        const phoneBook = new Map([
+            ["Alice", "050-1234567"],
+            ["Bob", "052-7654321"],
+            ["Charlie", "054-1111111"],
+            ["David", "053-2222222"],
+            ["Eve", "050-3333333"]
+        ]);
+
+        // 2. Add, update, delete
+        phoneBook.set("Frank", "055-4444444");  // Add new
+        phoneBook.set("Alice", "050-9999999");  // Update existing
+        phoneBook.delete("David");               // Delete
+
+        // 3. Check existence
+        console.log(phoneBook.has("Alice"));  // true
+        console.log(phoneBook.has("David"));  // false (deleted)
+        console.log("Size:", phoneBook.size); // 5
+
+        // 4. Iterate
+        for (const [name, phone] of phoneBook) {
+            console.log(`${name}: ${phone}`);
+        }
+
+        // 5. Convert to array of objects
+        console.log("Convert to array of objects");
+        let arr = [...phoneBook];
+        console.log(arr);
+
+        const contacts = [...phoneBook].map(([name, phone]) => (
+            {
+            name,
+            phone
+            }
+    ));
+        console.log(contacts);
+
+            let name ="asaf";
+            let phone = "050-1234567";
+            let person = { name, phone };//{name:name, phone:phone}
+    </script>
+</body>
+
+</html>

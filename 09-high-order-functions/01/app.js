@@ -33,7 +33,11 @@ numbers.forEach(number=>{
 
 let numbers4 = numbers.map(number=> number*number).filter(number=> number > 3).forEach(number=>{
     console.log(number);
-})  ;
+});
+
+
+let numbers5 = numbers.every(number=> number > 3);//false 
+let numbers6 = numbers.some(number=> number > 3);//true     
 
 
 
