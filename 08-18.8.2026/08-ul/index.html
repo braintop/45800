@@ -15,14 +15,20 @@
 
     <script>
         function addFriend() {
+            
             let friendname = document.getElementById("friendname").value;
+            if (friendname.length > 0) {
             let friends = JSON.parse(localStorage.getItem("friends")) || [];
-            friends.push(friendname);
-            localStorage.setItem("friends", JSON.stringify(friends));
-            let li = document.createElement("li");
-            li.innerHTML = friendname;
-            document.querySelector("ul").appendChild(li);
-            document.getElementById("friendname").value = "";
+                friends.push(friendname);
+                localStorage.setItem("friends", JSON.stringify(friends));
+                let li = document.createElement("li");
+                li.innerHTML = friendname;
+                document.querySelector("ul").appendChild(li);
+                document.getElementById("friendname").value = "";
+            }
+            else {
+                alert("Please enter a friendname");
+            }
         }
         function loadFriends() {
             let friends = JSON.parse(localStorage.getItem("friends")) || [];
