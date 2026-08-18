@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="age" type="number" placeholder="Firstname">
+    <button onclick="saveData()">Save</button>
+
+
+    <script>
+        function saveData() {
+            let age = document.getElementById("age").value;
+            localStorage.setItem("age", age);
+        }
+
+        function loadData() {
+            let age = localStorage.getItem("age");
+            document.getElementById("age").value = age;
+            alert(typeof age);//string
+        }
+
+
+        loadData();
+    </script>
+</body>
+</html>

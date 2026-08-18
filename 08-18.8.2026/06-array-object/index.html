@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="firstname" placeholder="Firstname">
+    <input type="text" id="lastname" placeholder="Lastname">
+    <input type="number" id="age" placeholder="Age">
+    <input type="email" id="email" placeholder="Email">
+    <button onclick="addData()">Add</button>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+
+    </table>
+
+    <script>
+        function addData() {
+            let strPersons = localStorage.getItem("persons") || "[]";
+            let persons = JSON.parse(strPersons);
+
+            let firstname = document.getElementById("firstname").value;
+            let lastname = document.getElementById("lastname").value;
+            let age = document.getElementById("age").value;
+            let email = document.getElementById("email").value;
+            let person = {
+                firstname: firstname,
+                lastname: lastname,
+                age: age,
+                email: email
+            }
+            persons.push(person);
+            localStorage.setItem("persons", JSON.stringify(persons));
+            //create a new row in the table
+            //create a new cell in the row for each property of the person
+            //set the value of the cell to the value of the property
+            //append the row to the table
+            let row = document.createElement("tr");
+            let cell1 = document.createElement("td");
+            cell1.innerHTML = person.firstname;
+            row.appendChild(cell1);
+            let cell2 = document.createElement("td");
+            cell2.innerHTML = person.lastname;
+            row.appendChild(cell2);
+            let cell3 = document.createElement("td");
+            cell3.innerHTML = person.age;
+            row.appendChild(cell3);
+            let cell4 = document.createElement("td");
+            cell4.innerHTML = person.email;
+            row.appendChild(cell4);
+            document.querySelector("tbody").appendChild(row);
+        }
+
+        function loadData() {
+            let strPersons = localStorage.getItem("persons") || "[]";
+            let persons = JSON.parse(strPersons);
+            for (let i = 0; i < persons.length; i++) {
+                let person = persons[i];
+                let row = document.createElement("tr");
+                let cell1 = document.createElement("td");
+                cell1.innerHTML = person.firstname;
+                row.appendChild(cell1);
+                let cell2 = document.createElement("td");
+                cell2.innerHTML = person.lastname;
+                row.appendChild(cell2);
+                let cell3 = document.createElement("td");
+                cell3.innerHTML = person.age;
+                row.appendChild(cell3);
+                let cell4 = document.createElement("td");
+                cell4.innerHTML = person.email;
+                row.appendChild(cell4);
+                document.querySelector("tbody").appendChild(row);
+            }
+            
+        }
+        loadData();
+    </script>
+</body>
+
+</html>

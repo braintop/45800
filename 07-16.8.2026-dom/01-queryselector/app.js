@@ -1,7 +1,7 @@
 function changeNameColor(){
-     let query = document.querySelector(".name");
+     let element = document.querySelector(".name");
     // document.getelementById("name").style.backgroundColor = 'red';
-    query.style.color = 'pink';
+    element.style.color = 'pink';
 }
 
 function changeAllPColor(){

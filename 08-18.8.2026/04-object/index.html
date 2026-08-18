@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="saveData()">Save</button>
+
+
+    <script>
+        function saveData() {
+            let person = {
+                firstname: "John",
+                lastname: "Doe",
+                age: 30,
+                email: "john.doe@example.com"
+            }
+            localStorage.setItem("person", JSON.stringify(person));
+
+        }
+
+        function loadData() {
+            let obj = localStorage.getItem("person");//string
+            let person = JSON.parse(obj);//object
+            console.log(person);
+        }
+    </script>
+</body>
+
+</html>

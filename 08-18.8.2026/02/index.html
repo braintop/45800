@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="firstname" type="text" placeholder="Firstname">
+    <input id="city" type="text" placeholder="City">
+    <input id="email" type="text" placeholder="Email">
+    <button onclick="saveData()">Save</button>
+
+    <button onclick="clearData()">Clear</button>
+
+
+    <script>
+        function saveData() {
+            let firstname = document.getElementById("firstname").value;
+            let city = document.getElementById("city").value;
+            let email = document.getElementById("email").value;
+            localStorage.setItem("firstname", firstname);
+            localStorage.setItem("city", city);
+            localStorage.setItem("email", email);
+        }
+
+        function loadData() {
+            let firstname = localStorage.getItem("firstname");
+            let city = localStorage.getItem("city");
+            let email = localStorage.getItem("email");
+            document.getElementById("firstname").value = firstname;
+            document.getElementById("city").value = city;
+            document.getElementById("email").value = email;
+        }
+        function clearData() {
+            localStorage.clear();
+        }
+
+
+        loadData();
+    </script>
+</body>
+</html>

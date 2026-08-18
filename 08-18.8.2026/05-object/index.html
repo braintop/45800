@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="firstname" placeholder="Firstname">
+    <input type="text" id="lastname" placeholder="Lastname">
+    <input type="number" id="age" placeholder="Age">
+    <input type="email" id="email" placeholder="Email">
+    <button onclick="saveData()">Save</button>
+
+
+    <script>
+        function saveData() {
+            let firstname = document.getElementById("firstname").value;
+            let lastname = document.getElementById("lastname").value;
+            let age = document.getElementById("age").value;
+            let email = document.getElementById("email").value;
+            let person = {
+                firstname: firstname,
+                lastname: lastname,
+                age: age,
+                email: email
+            }
+            localStorage.setItem("person", JSON.stringify(person));
+
+        }
+
+        function loadData() {
+            let obj = localStorage.getItem("person")//string || null
+            let person = JSON.parse(obj);//object
+            
+            document.getElementById("firstname").value = person.firstname;
+            document.getElementById("lastname").value = person.lastname;
+            document.getElementById("age").value = person.age;
+            document.getElementById("email").value = person.email;
+        }
+        loadData();
+    </script>
+</body>
+
+</html>
