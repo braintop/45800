@@ -21,6 +21,9 @@
             let friends = JSON.parse(localStorage.getItem("friends")) || [];
                 friends.push(friendname);
                 localStorage.setItem("friends", JSON.stringify(friends));
+
+
+                
                 let li = document.createElement("li");
                 li.innerHTML = friendname;
                 document.querySelector("ul").appendChild(li);

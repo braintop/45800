@@ -1,3 +1,7 @@
+//()=>{}
+//function(){}    
+
+
 let numbers = [1, 2, 3, 4, 5,59, 80, 1];
 
 // let squers = [] 
@@ -19,7 +23,7 @@ let numbers1 = numbers.find(number=> number > 3);
 console.log(numbers1);//4
 
 let numbers2 = numbers.findIndex(number=> number > 3);
-console.log(numbers2);//1
+console.log(numbers2);//3
 
 let numbers3 = numbers.filter(number=> number > 3);
 console.log(numbers3);//[4, 5, 59, 80]
