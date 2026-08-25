@@ -22,14 +22,12 @@
     return promise;
 }
 
-let successCallback= (data)=>{
+let s= (data)=>{
     console.log(data);
 }
-
-
-
-let p=f();
-p.then(successCallback).catch(err=>{
+let e= (err)=>{
     console.log(err);
-});
+}
+let p=f();
+p.then(successCallback).catch(errorCallback);
 console.log("code continues");
