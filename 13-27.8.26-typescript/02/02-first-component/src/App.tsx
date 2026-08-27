@@ -6,6 +6,11 @@ function App() {
   return (
     <>
       <Counter />
+      <Counter />
+      <Counter />
+      <Counter />
+      <Counter />
+
     </>
   )
 }
