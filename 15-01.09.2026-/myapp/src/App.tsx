@@ -2,6 +2,7 @@
 import SignupForm from './components/SignupForm'
 import Exe1Form from './components/Exe1Form'
 import Exe2Form from './components/Exe2Form'
+import StudentList from './components/StudentList'
 function App() {
    
   return (
@@ -15,6 +16,7 @@ function App() {
 
       <h1>Exe2</h1>
       <Exe2Form />
+      <StudentList />
     </>
   )
 }
