@@ -5,6 +5,8 @@ import Todos from './pages/Todos'
 import Todo from './pages/Todo'
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
+import Albums from './pages/Albums'
+import Album from './pages/Album'
 function App() {
 
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path="/todos" element={<Todos />} />
       <Route path="/todo/:id" element={<Todo />} />
+      <Route path="/albums" element={<Albums />} />
+      <Route path="/album/:id" element={<Album />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
     </>
