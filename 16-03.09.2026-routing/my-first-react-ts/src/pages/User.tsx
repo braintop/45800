@@ -10,3 +10,19 @@ export default function User() {
 
 
 }
+
+
+
+// let person={
+//     name: 'John',
+//     age: 30,
+//     city: 'New York'
+// }
+
+// let {name, city, age} = person
+
+// const name = person.name
+// const age = person.age
+// const city = person.city
+
+// console.log(name, age, city)
