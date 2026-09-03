@@ -1,5 +1,5 @@
 import { useState } from 'react'
-interface CounterProps {
+interface CounterProps { 
   c: number,
   firstname: string,
 }

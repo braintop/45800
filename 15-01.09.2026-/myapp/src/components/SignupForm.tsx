@@ -20,16 +20,6 @@ interface SignupFormData {
     }
 
     //{name: 'John', email: 'john@example.com', age: '20', age: '30'}
-    function f1(e: React.ChangeEvent<HTMLInputElement>){
-      console.log(e.target.name, e.target.value)
-    }
-    const handleChange2 = function(e: React.ChangeEvent<HTMLInputElement> )  {  
-      // console.log(form);
-      // console.log(e.target.name, e.target.value) 
-      //       return
-       console.log({...form,[e.target.name]: e.target.value})
-     setForm({...form,[e.target.name]: e.target.value})
-   }
 
   
   
