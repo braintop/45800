@@ -37,7 +37,7 @@ function App() {
       <Stack  sx={{ color: 'grey.500' }} spacing={2} direction="row">
       <CircularProgress color="secondary" aria-label="Loading…" />
       <CircularProgress color="success" aria-label="Loading…" />
-      <CircularProgress color="inherit" aria-label="Loading…" />
+      <CircularProgress color="inherit" aria-label="Loading…...." />
     </Stack>
 
 
