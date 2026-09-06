@@ -5,7 +5,7 @@ export default function Albums() {
     async function getAlbums(){
         const response = await fetch('https://jsonplaceholder.typicode.com/albums');
         const data = await response.json();
-        setAlbums(data);
+        setAlbums(data); 
     }
     useEffect(()=>{
         getAlbums();

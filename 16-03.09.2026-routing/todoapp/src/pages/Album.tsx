@@ -6,17 +6,22 @@ interface Album {
 }
 export default function Album() {
   const { id } = useParams();
-  const[albums, setAlbums] = useState<Album[]>([]);
+  const [albums, setAlbums] = useState<Album[]>([]);
   const [album, setAlbum] = useState<Album | null>(null);
 
 
-  async function getAlbums(){
-    const response = await fetch('https://jsonplaceholder.typicode.com/albums');
-    const data = await response.json();
-    setAlbums(data);
+  async function getAlbums() {
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/albums');
+      const data = await response.json();
+      setAlbums(data);
 
-    let item = data.find((album: Album) => album.id === Number(id));
-    setAlbum(item || null);
+      let item = data.find((album: Album) => album.id === Number(id));
+      setAlbum(item || null);
+    }
+    catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {

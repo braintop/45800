@@ -1,0 +1,91 @@
+.box {
+  --ink: #0f172a;
+  --muted: #64748b;
+  --accent: #0d9488;
+  --accent-dark: #0f766e;
+  --surface: #f8fafc;
+  --ring: color-mix(in srgb, var(--accent) 25%, transparent);
+
+  width: min(320px, 90vw);
+  margin: 2.5rem auto;
+  padding: 2rem 1.75rem;
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(120% 80% at 0% 0%, #ccfbf1 0%, transparent 55%),
+    radial-gradient(100% 70% at 100% 100%, #e0f2fe 0%, transparent 50%),
+    var(--surface);
+  border: 1px solid #e2e8f0;
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 4%),
+    0 12px 32px rgb(15 23 42 / 8%);
+  text-align: center;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.box:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 8px rgb(15 23 42 / 6%),
+    0 20px 40px rgb(15 23 42 / 10%);
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.count {
+  margin: 0.25rem 0 1.5rem;
+  font-size: clamp(3rem, 10vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  animation: pop 0.35s ease;
+}
+
+.button {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  box-shadow: 0 8px 20px var(--ring);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease;
+}
+
+.button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 10px var(--ring);
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.4;
+  }
+  60% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
