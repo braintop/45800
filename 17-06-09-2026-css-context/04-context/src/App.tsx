@@ -4,7 +4,6 @@ import Contacts from "./pages/Contacts";
 import UserContext from "./contexts/UserContext";
 function App() {
 
-   
   
   return (
     <div>

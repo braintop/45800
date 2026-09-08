@@ -1,6 +1,6 @@
 import UserContext from "../contexts/UserContext";
 import { useContext } from "react";
-export default function Contacts() {
+export default function Contacts() { 
     
   const { firstName, isLoggedIn } = useContext(UserContext);//{firstName: string, isLoggedIn: boolean}
   
