@@ -14,7 +14,6 @@ const UserContext = createContext<UserContextType>({
     logout: () => {},
 });
 
-
 interface UserProviderProps {
     children: React.ReactNode;
 }
