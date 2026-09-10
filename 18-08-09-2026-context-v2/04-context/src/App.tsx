@@ -7,6 +7,11 @@ import ProductList from "./components/ProductList";
 import MoviesList from "./pages/MoviesList";
 import AddNewMovie from "./pages/AddNewMovie";
 import { MovieProvider } from "./contexts/MovieContext";
+import ThemeButton from "./components/ThemeButton";
+import Header from "./components/Header";
+import Content from "./components/Contetent";
+
+
 function App() {
 
   
@@ -14,6 +19,10 @@ function App() {
   return (
     <div>
       <Navbar />
+      <ThemeButton />
+      <Header />
+      <Content />
+      
       <MovieProvider>
       <Routes>
         <Route path="/login" element={<Login />} />
