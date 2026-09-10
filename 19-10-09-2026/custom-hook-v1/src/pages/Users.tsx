@@ -1,6 +1,8 @@
 import useFetch from '../hooks/useFetch';
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 export default function Users() {
     const { data, loading, error } = useFetch('https://jsonplaceholder.typicode.com/users');
+    useDocumentTitle('Users')
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
