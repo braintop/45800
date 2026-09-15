@@ -1,6 +1,6 @@
 import CounterPage from './CounterPage'
 import LanguagePage from './LanguagePage'
-import Stam from './stam'
+import Stam from './Stam'
 function App() {
 
   return (
