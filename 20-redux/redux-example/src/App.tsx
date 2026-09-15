@@ -5,6 +5,9 @@ import Stam from './Stam'
 import {Routes, Route} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import UserPage from './UserPage'
+import CityPage from './CityPage'
+import UserPage2 from './UserPage2'
+import DisplayUser from './DisplayUser'
 function App() {
 
   return (
@@ -16,6 +19,9 @@ function App() {
       <Route path="/movie" element={<MoviePage />} />
       <Route path="/stam" element={<Stam />} />
       <Route path="/user" element={<UserPage />} />
+      <Route path="/city" element={<CityPage />} />
+      <Route path="/displayuser" element={<DisplayUser />} />
+      <Route path="/user2" element={<UserPage2 />} />
     </Routes>
     </>
   )
