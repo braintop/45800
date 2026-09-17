@@ -6,6 +6,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const PORT = 3000;
+const cors_1 = __importDefault(require("cors"));
+app.use((0, cors_1.default)());
+let persons = [
+    { id: 1, name: 'John', age: 20 },
+    { id: 2, name: 'Jane', age: 21 },
+    { id: 3, name: 'Jim', age: 22 },
+];
+app.get('/persons', (req, res) => {
+    res.json(persons);
+});
+app.get('/persons/:id', (req, res) => {
+    let id = +req.params.id;
+    let person = persons.find((person) => person.id === id);
+    if (person) {
+        res.status(200).json(person);
+    }
+    else {
+        res.status(404).json({ error: 'Person not found' });
+    }
+});
 // Define a route
 app.get('/', (req, res) => {
     res.send('Hello from Express!');

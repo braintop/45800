@@ -1,6 +1,28 @@
 import express, { Request, Response } from 'express';
 const app = express();
 const PORT = 3000;
+import cors from 'cors';
+app.use(cors())
+
+let persons = [
+  { id: 1, name: 'John', age: 20 },
+  { id: 2, name: 'Jane', age: 21 },
+  { id: 3, name: 'Jim', age: 22 },
+];
+
+app.get('/persons', (req: Request, res: Response) => {
+  res.json(persons);
+});
+
+app.get('/persons/:id', (req: Request, res: Response) => {
+  let id = +req.params.id;
+  let person = persons.find((person) => person.id ===id);
+  if (person) {
+    res.status(200).json(person);
+  } else {
+    res.status(404).json({ error: 'Person not found' });
+  }
+});
 
 // Define a route
 app.get('/', (req: Request, res: Response) => {
@@ -22,6 +44,9 @@ app.get('/student', (req: Request, res: Response) => {
 app.get('/teacher', (req: Request, res: Response) => {
   res.send('im a teacher!');
 });
+
+
+
 
 
 app.get('/person/:id', (req: Request, res: Response) => {
