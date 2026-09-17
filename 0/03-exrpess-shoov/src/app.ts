@@ -3,7 +3,7 @@ const app = express();
 const PORT = 3000;
 import cors from 'cors';
 app.use(cors())
-
+app.use(express.json())
 let persons = [
   { id: 1, name: 'John', age: 20 },
   { id: 2, name: 'Jane', age: 21 },
@@ -21,6 +21,17 @@ app.get('/persons/:id', (req: Request, res: Response) => {
     res.status(200).json(person);
   } else {
     res.status(404).json({ error: 'Person not found' });
+  }
+});
+
+app.post('/persons', (req: Request, res: Response) => {
+  try {
+  let person = req.body;
+    person.id = persons.length + 1;
+    persons.push(person);
+    res.status(201).json(person);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 

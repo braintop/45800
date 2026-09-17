@@ -8,6 +8,7 @@ const app = (0, express_1.default)();
 const PORT = 3000;
 const cors_1 = __importDefault(require("cors"));
 app.use((0, cors_1.default)());
+app.use(express_1.default.json());
 let persons = [
     { id: 1, name: 'John', age: 20 },
     { id: 2, name: 'Jane', age: 21 },
@@ -25,6 +26,12 @@ app.get('/persons/:id', (req, res) => {
     else {
         res.status(404).json({ error: 'Person not found' });
     }
+});
+app.post('/persons', (req, res) => {
+    let person = req.body;
+    person.id = persons.length + 1;
+    persons.push(person);
+    res.status(201).json(person);
 });
 // Define a route
 app.get('/', (req, res) => {
