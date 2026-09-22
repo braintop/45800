@@ -28,10 +28,36 @@ app.get('/persons/:id', (req, res) => {
     }
 });
 app.post('/persons', (req, res) => {
-    let person = req.body;
-    person.id = persons.length + 1;
-    persons.push(person);
-    res.status(201).json(person);
+    try {
+        let person = req.body;
+        person.id = persons.length + 1;
+        persons.push(person);
+        res.status(201).json(person);
+    }
+    catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+app.delete('/persons/:id', (req, res) => {
+    try {
+        let id = +req.params.id;
+        persons = persons.filter((person) => person.id !== id);
+        res.status(200).json({ message: 'Person deleted successfully' });
+    }
+    catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+app.put('/persons/:id', (req, res) => {
+    try {
+        let id = +req.params.id;
+        let updatedPerson = req.body;
+        persons = persons.map((person) => person.id === id ? updatedPerson : person);
+        res.status(200).json(updatedPerson);
+    }
+    catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
 });
 // Define a route
 app.get('/', (req, res) => {
@@ -68,5 +94,5 @@ app.get('/hello/:name/:city', (req, res) => {
 });
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });

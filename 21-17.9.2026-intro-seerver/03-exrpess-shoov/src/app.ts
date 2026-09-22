@@ -35,6 +35,29 @@ app.post('/persons', (req: Request, res: Response) => {
   }
 });
 
+// Delete a person
+app.delete('/persons/:id', (req: Request, res: Response) => {
+  try {
+    let id = +req.params.id;
+    persons = persons.filter((person) => person.id !== id);
+    res.status(200).json({ message: 'Person deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Update a person
+app.put('/persons/:id', (req: Request, res: Response) => {
+  try {
+    let id = +req.params.id;
+    let updatedPerson = req.body;
+    persons = persons.map((person) => person.id === id ? updatedPerson : person);
+    res.status(200).json(updatedPerson);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Define a route
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello from Express!');
@@ -85,5 +108,5 @@ app.get('/hello/:name/:city', (req: Request, res: Response) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
