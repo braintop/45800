@@ -15,19 +15,12 @@ if (!databaseUrl) {
   throw new Error('DATABASE_URL is not set')
 }
 const sql = neon(databaseUrl)
-async function getCities() {
-  return (await sql`
-    SELECT "city_id", city_name
-    FROM cities
-    ORDER BY city_name ASC
-  `) as City[]
-}
 //read all cities
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello Node')
 })
 app.get('/cities', async (req: Request, res: Response) => {
-  const cities = await getCities()
+  let cities = await sql`SELECT "city_id", city_name FROM cities ORDER BY city_name ASC`
   res.json(cities)
 })
 
