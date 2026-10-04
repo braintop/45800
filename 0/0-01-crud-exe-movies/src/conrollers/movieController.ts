@@ -9,6 +9,9 @@ const sql = neon(databaseUrl);
 
 
 export const getMovies = async (_req: Request, res: Response) => {
+    const x = (_req as any).x;
+    console.log(x);
+
     const movies = await sql`SELECT * FROM movies`;
     return res.json(movies);
 };

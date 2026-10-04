@@ -8,6 +8,8 @@ if (!databaseUrl) {
 }
 const sql = (0, serverless_1.neon)(databaseUrl);
 const getMovies = async (_req, res) => {
+    const x = _req.x;
+    console.log(x);
     const movies = await sql `SELECT * FROM movies`;
     return res.json(movies);
 };
