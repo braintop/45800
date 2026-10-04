@@ -2,10 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const movieController_1 = require("../conrollers/movieController");
+const authMiddleware_1 = require("../middleWare/authMiddleware");
 const router = (0, express_1.Router)();
-router.get('/', movieController_1.getMovies);
+router.get('/', authMiddleware_1.authMiddleware, movieController_1.getMovies);
 router.get('/:id', movieController_1.getMovieById);
 router.post('/', movieController_1.createMovie);
 router.put('/:id', movieController_1.updateMovie);
-router.delete('/:id', movieController_1.deleteMovie);
+router.delete('/:id', authMiddleware_1.authMiddleware, movieController_1.deleteMovie);
 exports.default = router;

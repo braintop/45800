@@ -53,7 +53,7 @@ const loginUser = async (req, res) => {
         if (!isPasswordValid) {
             return res.status(400).json({ error: 'Invalid password' });
         }
-        const token = jsonwebtoken_1.default.sign({ userId: user.user_id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jsonwebtoken_1.default.sign({ user_id: user.user_id, "user_name": user.user_name, "role": user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.json({ message: 'Login successful', token });
     }
     catch (error) {

@@ -7,9 +7,12 @@ if (!databaseUrl) {
     throw new Error('DATABASE_URL is not set');
 }
 const sql = (0, serverless_1.neon)(databaseUrl);
-const getMovies = async (_req, res) => {
-    const x = _req.x;
-    console.log(x);
+const getMovies = async (req, res) => {
+    const user = req.user;
+    console.log(user);
+    if (user?.role === 'user') {
+        console.log('this is a user and not an admin');
+    }
     const movies = await sql `SELECT * FROM movies`;
     return res.json(movies);
 };
@@ -34,8 +37,16 @@ const updateMovie = async (req, res) => {
 };
 exports.updateMovie = updateMovie;
 const deleteMovie = async (req, res) => {
+    const user = req.user;
+    console.log(user);
+    if (user?.role === 'user') {
+        console.log('this is a user and not an admin');
+        return res.status(403).json({
+            error: 'You are not authorized to delete a movie'
+        });
+    }
     const { id } = req.params;
-    const movie = await sql `DELETE FROM movies WHERE id = ${id}`;
+    const movie = await sql `DELETE FROM movies WHERE movie_id = ${id}`;
     return res.json("movie deleted successfully");
 };
 exports.deleteMovie = deleteMovie;
