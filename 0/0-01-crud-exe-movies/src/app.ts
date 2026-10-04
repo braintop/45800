@@ -4,6 +4,12 @@ import productRoutes from './routes/productRoutes';
 import movieRoutes from './routes/movieRouters';
 const app = express();
 
+
+app.use((req: Request, res: Response, next: NextFunction) => {
+    console.log('middleware is called');
+    console.log('Current time:', new Date());
+    next();
+});
 function f1(req: Request, res: Response, next: NextFunction){
     console.log('f1 is called');
     next();
@@ -22,10 +28,10 @@ function isAdmin(req: Request, res: Response, next: NextFunction){
     next();
 }
 
-
+let arr = [f1,f2,isLoggedIn, isAdmin];
 
 app.use(express.json());//middleware to parse the request body
-app.use('/products',f1,f2,isLoggedIn, isAdmin, productRoutes);//middleware to parse the request body
+app.use('/products',arr, productRoutes);//middleware to parse the request body
 app.use('/movies',f2,isLoggedIn, isAdmin, movieRoutes);//middleware to parse the request body
 
 app.listen(3000, () => {
