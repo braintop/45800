@@ -5,9 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateUser = exports.deleteUser = exports.getUserById = exports.getUsers = exports.createUser = void 0;
 const UserModel_1 = __importDefault(require("../models/UserModel"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const createUser = async (req, res) => {
     const { firstName, email, password } = req.body;
-    const user = await UserModel_1.default.create({ firstName, email, password });
+    const hashedPassword = await bcryptjs_1.default.hash(password, 10);
+    const user = await UserModel_1.default.create({ firstName, email, password: hashedPassword });
     res.status(201).json(user);
 };
 exports.createUser = createUser;

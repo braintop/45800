@@ -1,9 +1,16 @@
+//npm install bcryptjs
+//import bcrypt from "bcryptjs";
+// hash the password before storing it in the database -     const hashedPassword = await bcrypt.hash(password, 10);
+
+
 import User from '../models/UserModel';
 import { Request, Response } from 'express';
+import bcrypt from "bcryptjs";
 
 export const createUser = async (req: Request, res: Response) => {
     const { firstName, email, password } = req.body;
-    const user = await User.create({ firstName, email, password });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = await User.create({ firstName, email, password: hashedPassword });
     res.status(201).json(user);
 }
 
