@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUsers = exports.createUser = void 0;
+exports.updateUser = exports.deleteUser = exports.getUserById = exports.getUsers = exports.createUser = void 0;
 const UserModel_1 = __importDefault(require("../models/UserModel"));
 const createUser = async (req, res) => {
     const { firstName, email, password } = req.body;
@@ -16,3 +16,22 @@ const getUsers = async (req, res) => {
     res.status(200).json(users);
 };
 exports.getUsers = getUsers;
+const getUserById = async (req, res) => {
+    const { id } = req.params;
+    const user = await UserModel_1.default.findById(id);
+    res.status(200).json(user);
+};
+exports.getUserById = getUserById;
+const deleteUser = async (req, res) => {
+    const { id } = req.params;
+    await UserModel_1.default.findByIdAndDelete(id);
+    res.status(200).json({ message: 'User deleted successfully' });
+};
+exports.deleteUser = deleteUser;
+const updateUser = async (req, res) => {
+    const { id } = req.params;
+    const { firstName, email, password } = req.body;
+    const user = await UserModel_1.default.findByIdAndUpdate(id, { firstName, email, password }, { new: true });
+    res.status(200).json(user);
+};
+exports.updateUser = updateUser;
