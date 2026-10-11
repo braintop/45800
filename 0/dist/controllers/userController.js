@@ -16,7 +16,7 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const createUser = async (req, res) => {
     const { firstName, email, password, role } = req.body;
     const hashedPassword = await bcryptjs_1.default.hash(password, 10);
-    const user = await UserModel_1.default.create({ firstName, email, password: hashedPassword });
+    const user = await UserModel_1.default.create({ firstName, email, password: hashedPassword, role });
     res.status(201).json(user);
 };
 exports.createUser = createUser;
@@ -61,7 +61,7 @@ const login = async (req, res) => {
     if (!secret) {
         return res.status(500).json({ message: 'Internal Server Error' });
     }
-    const token = jsonwebtoken_1.default.sign({ userId: user._id }, secret, { expiresIn: '1h' });
+    const token = jsonwebtoken_1.default.sign({ userId: user._id, role: user.role }, secret, { expiresIn: '1h' });
     res.status(200).json({ token, message: 'Login successful', user });
 };
 exports.login = login;

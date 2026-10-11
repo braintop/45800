@@ -9,6 +9,8 @@ function adminMiddleware(req, res, next) {
         });
         return;
     }
+    console.log("req.user", req.user);
+    console.log("req.user.role", req.user.role);
     // Check if user is admin
     if (req.user.role !== 'admin') {
         res.status(403).json({

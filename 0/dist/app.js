@@ -12,7 +12,7 @@ const userRoute_1 = __importDefault(require("./routes/userRoute"));
 const productRoute_1 = __importDefault(require("./routes/productRoute"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
-app.use(express_1.default.json());
+app.use(express_1.default.json()); //middleware to parse the request body
 const port = 4000;
 async function connectToMongoDB() {
     const mongoURI = process.env.MONGODB_URI;

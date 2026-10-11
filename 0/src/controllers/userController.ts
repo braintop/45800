@@ -17,7 +17,7 @@ export const createUser = async (req: Request, res: Response) => {
 
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({ firstName, email, password: hashedPassword });
+    const user = await User.create({ firstName, email, password: hashedPassword,role });
     res.status(201).json(user);
 }
 
@@ -63,6 +63,6 @@ export const login = async (req: Request, res: Response) => {
     if(!secret) {
         return res.status(500).json({ message: 'Internal Server Error' });
     }
-    const token = jwt.sign({ userId: user._id }, secret, { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id, role: user.role }, secret, { expiresIn: '1h' });
     res.status(200).json({ token, message: 'Login successful', user });
 }

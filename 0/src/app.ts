@@ -5,7 +5,7 @@ import userRoute from './routes/userRoute';
 import productRoute from './routes/productRoute';
 dotenv.config();
 const app = express();
-app.use(express.json());
+app.use(express.json());//middleware to parse the request body
 const port = 4000;
 
 export async function connectToMongoDB() {
