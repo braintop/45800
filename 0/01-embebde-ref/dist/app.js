@@ -6,13 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const courseRoutes_1 = __importDefault(require("./routes/courseRoutes"));
-const enrollmentRoutes_1 = __importDefault(require("./routes/enrollmentRoutes"));
+const orderRoutes_1 = __importDefault(require("./routes/orderRoutes"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.use('/courses', courseRoutes_1.default);
-app.use('/enrollments', enrollmentRoutes_1.default);
+app.use('/orders', orderRoutes_1.default);
 const PORT = 3000;
 async function startServer() {
     try {

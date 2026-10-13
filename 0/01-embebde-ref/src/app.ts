@@ -2,8 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
-import courseRoutes from './routes/courseRoutes';
-import enrollmentRoutes from './routes/enrollmentRoutes';
+import orderRoutes from './routes/orderRoutes';
 
 dotenv.config();
 
@@ -11,8 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/courses', courseRoutes);
-app.use('/enrollments', enrollmentRoutes);
+app.use('/orders', orderRoutes);
 
 const PORT = 3000;
 
