@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const enrollmentController_1 = require("../conrollers/enrollmentController");
+const router = (0, express_1.Router)();
+router.get('/', enrollmentController_1.getAllEnrollments);
+router.get('/student/:studentId', enrollmentController_1.getEnrollmentsByStudent);
+router.get('/course/:courseId', enrollmentController_1.getEnrollmentsByCourse);
+router.get('/:id', enrollmentController_1.getEnrollmentById);
+router.post('/', enrollmentController_1.createEnrollment);
+exports.default = router;
