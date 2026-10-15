@@ -1,0 +1,63 @@
+### בדיקות ל-Ask My Company
+### ב-VS Code: התקינו את התוסף REST Client ולחצו Send Request
+
+@host = http://localhost:3000
+
+### 0. השרת חי?
+GET {{host}}/health
+
+### 1. אילו מסמכים נשמרו?
+GET {{host}}/api/rag/documents
+
+### 2. Vector Search בלבד, בלי Gemini
+### כאן רואים את ה-distance של כל מסמך
+POST {{host}}/api/rag/search
+Content-Type: application/json
+
+{
+  "question": "How long will I wait for my package?",
+  "limit": 5
+}
+
+### 3. שאלה רגילה
+POST {{host}}/api/rag/ask
+Content-Type: application/json
+
+{
+  "question": "How many days do I have to return a product?"
+}
+
+### 4. שאלה במילים אחרות לגמרי מהמסמך
+### המסמך אומר "3 to 5 business days", השאלה לא מזכירה זאת
+POST {{host}}/api/rag/ask
+Content-Type: application/json
+
+{
+  "question": "I forgot my credentials, when can I talk to a human?"
+}
+
+### 5. שאלה שאין עליה מידע במסמכים
+### התשובה הנכונה: I don't know based on the provided documents.
+POST {{host}}/api/rag/ask
+Content-Type: application/json
+
+{
+  "question": "Does the company have an office in New York?"
+}
+
+### 6. שאלה שלא קשורה בכלל
+### כאן ה-Threshold אמור לסנן הכול
+POST {{host}}/api/rag/ask
+Content-Type: application/json
+
+{
+  "question": "Who won the World Cup?"
+}
+
+### 7. ולידציה: שאלה ריקה, מצפים ל-400
+POST {{host}}/api/rag/ask
+Content-Type: application/json
+
+{
+  "question": ""
+}
