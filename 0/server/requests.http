@@ -1,0 +1,101 @@
+### Tools + Function Calling - בדיקות
+### VS Code + התוסף REST Client
+
+@host = http://localhost:3000
+
+### 0. השרת חי?
+GET {{host}}/health
+
+### 1. הרשמה. העתיקו את ה-token לשורה שמתחת
+POST {{host}}/api/users/register
+Content-Type: application/json
+
+{
+  "user_name": "Test User",
+  "email": "test@example.com",
+  "password": "123456"
+}
+
+### שימו כאן את ה-token שקיבלתם
+@token = PASTE_TOKEN_HERE
+
+### 2. התחברות (אם כבר נרשמתם)
+POST {{host}}/api/users/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "123456"
+}
+
+### ============================================
+### שלוש הבדיקות של השיעור
+### ============================================
+
+### 3. שאלה על מסמכים  ->  search_documents
+POST {{host}}/api/agent/chat
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "What is the refund policy?"
+}
+
+### 4. יצירת משימה  ->  create_task
+POST {{host}}/api/agent/chat
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "Add a task to buy milk"
+}
+
+### 5. שליפת משימות  ->  list_tasks
+### שימו לב: המילה task לא מופיעה בשאלה
+POST {{host}}/api/agent/chat
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "What do I need to do today?"
+}
+
+### ============================================
+### בדיקות נוספות
+### ============================================
+
+### 6. עברית. אותם כלים בדיוק
+POST {{host}}/api/agent/chat
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "תוסיף לי משימה דחופה לסיים את הדוח"
+}
+
+### 7. שאלה שלא מתאימה לאף כלי
+POST {{host}}/api/agent/chat
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "Who won the World Cup?"
+}
+
+### 8. שתי פעולות בהודעה אחת
+### הקוד שלנו מריץ כלי אחד בלבד. זה המפגש הבא.
+POST {{host}}/api/agent/chat
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "message": "Check the refund policy and add a task to update our FAQ"
+}
+
+### 9. בלי Token, מצפים ל-401
+POST {{host}}/api/agent/chat
+Content-Type: application/json
+
+{
+  "message": "What do I need to do today?"
+}
