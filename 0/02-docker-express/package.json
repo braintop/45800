@@ -1,0 +1,17 @@
+{
+  "name": "02-docker-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ex": "^0.1.4",
+    "express": "^5.3.0"
+  }
+}
