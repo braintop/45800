@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    container_name: app
+    ports:
+      - "4000:3000"
+    environment:
+      - AppName="asaf"
+    volumes:
+      - tasks-data:/app/data
+
+    
+
+volumes:
+  tasks-data:

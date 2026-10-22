@@ -1,6 +1,7 @@
 const fs = require("fs");//file system module מספק פונקציות לעבוד עם קבצים ותיקיות
 const path = require("path");
-
+let appName = process.env.AppName || "Unknown";
+console.log(`App Name: ${appName}`);
 // הקובץ נשמר בתיקייה data, כדי שיהיה קל לחבר אותה ל-Volume ב-Docker
 const dataDir = path.join(__dirname, "data");
 console.log(dataDir);///Users/braintopltd/Desktop/joni1/45800/45800/0/03-docker-fs/data
