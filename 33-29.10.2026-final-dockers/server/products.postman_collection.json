@@ -1,0 +1,62 @@
+{
+  "info": {
+    "name": "Products API (Docker)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "id", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1. Create product",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const body = pm.response.json();",
+              "if (body._id) pm.collectionVariables.set('id', body._id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Mouse\",\n  \"description\": \"Wireless mouse\",\n  \"price\": 99\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "{{baseUrl}}/products"
+      }
+    },
+    {
+      "name": "2. Get all products",
+      "request": { "method": "GET", "url": "{{baseUrl}}/products" }
+    },
+    {
+      "name": "3. Get product by id",
+      "request": { "method": "GET", "url": "{{baseUrl}}/products/{{id}}" }
+    },
+    {
+      "name": "4. Update product",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Mouse Pro\",\n  \"description\": \"Wireless mouse, new model\",\n  \"price\": 149\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "{{baseUrl}}/products/{{id}}"
+      }
+    },
+    {
+      "name": "5. Delete product",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/products/{{id}}" }
+    }
+  ]
+}
