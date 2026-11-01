@@ -3,13 +3,17 @@ class Person:
         self.name = name
         self.age = age
         self.score = score
+        
     def print_info(self):
         print(f"Name: {self.name}, Age: {self.age}, Score: {self.score}")
 
     def max_jump(self):
         return self.score * 10
 
-    
+    def __str__(self):
+        return f"name: {self.name}, age: {self.age}, score: {self.score}"   
+
+
 
 
 s1 = Person("John", 30, 100)# s1 is an instance of the Person class. person is the object.
