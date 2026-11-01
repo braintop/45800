@@ -6,7 +6,7 @@ numbers.add(3)
 numbers.add(3)
 numbers.add(5)
 
-print(numbers)
+print(numbers)#{2, 3, 5}
 
 numbers.remove(3)
 print(numbers)
