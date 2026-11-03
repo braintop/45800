@@ -1,40 +1,69 @@
 class Dog:
+
+    vetrinary_name = "Oren malka"
+    counter = 0
+    def __init__(self, name, age):
+        self.name = name
+        self.__age = age #__ is private attribute
+        Dog.counter += 1
+   
+
+    @staticmethod
+    def get_price():
+        return Dog.counter * 100
+
+    
+    @property  #getter  
+    def age(self):
+        return self.__age
+
+    @age.setter #setter
+    def age(self, value):
+        if value > 0:
+            self.__age = value
+        else:
+            print("Age must be positive")
+
+    @property
+    def discount(self):
+        return self.__age * 0.1
+
+
+    def print_info(self):
+        print(f"Name: {self.name}, Age: {self.__age}")
+
+
+
+class Cat:
     def __init__(self, name, age):
         self.name = name
         self.age = age
-    
+
     def print_info(self):
+        print(Dog.counter)
         print(f"Name: {self.name}, Age: {self.age}")
 
-    def bark(self, bark_sound):
-        print(f"{self.name} is {bark_sound}")
 
-    def sit(self):
-        print(f"{self.name} is sitting")
+#propery 
+p1 = Dog("Rex", 10)
+p2 = Dog("Rex1", 10)
+p3 = Dog("Rex2", 10)
+p4 = Dog("Rex3", 10)
+p5 = Dog("Rex4", 10)
+p6 = Dog("Rex5", 10)
+p7 = Dog("Rex6", 10)
+p8 = Dog("Rex7", 10)
+p9 = Dog("Rex8", 10)
+p10 = Dog("Rex9", 10)
+print(Dog.counter)
+# x = p1.discount
+# print(x)
 
-    def __str__(self):
-        return f"Name: {self.name}, Age: {self.age}"
+p1.age = -15
 
-
-dog1 = Dog("Rex", 4)
-dog2 = Dog("luna", 2)
-
-print(dog1.name)
-print(dog2.age)
-
-print(dog2.name)
-print(dog2.age)
-
-dog1.print_info()
-dog2.print_info()
-
-b = input("print dog barking:")
-
-dog1.bark(b)
-dog2.sit()
+print(p1.age)
+p1.age = 20
 
 
 
-dog1.age = -5 # negative age is not possible
-print(dog1.age)
 
