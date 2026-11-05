@@ -1,0 +1,26 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: python_school_mysql
+    restart: unless-stopped
+ 
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password_change_me
+      MYSQL_DATABASE: school_db
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: app_password_change_me
+ 
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_school_data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+ 
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+ 
+volumes:
+  mysql_school_data:

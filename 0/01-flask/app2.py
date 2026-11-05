@@ -38,7 +38,7 @@ def add_product():
 
     # יצירת מוצר חדש
     new_product = {
-        "id": max((p["id"] for p in products), default=0) + 1,
+        "id": len(products) + 1,
         "name": name.strip(),
         "price": price
     }
