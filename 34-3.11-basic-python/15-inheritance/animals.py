@@ -17,14 +17,14 @@ class Dog(Animal):
 
     def print_info(self):
         print(f"{self.name} is a dog and is {self.age} years old and makes {self.sound}")
+print(__name__)
 
-
-
-a1 = Animal("Rex", 10)
-a1.print_info()
-d1 = Dog("Rex", 10, "woof")
-d1.print_info()
-d1.bark()
+if __name__ == "__main__":
+    a1 = Animal("Rex", 10)
+    a1.print_info()
+    d1 = Dog("Rex", 10, "woof")
+    d1.print_info()
+    d1.bark()
 
 
 
