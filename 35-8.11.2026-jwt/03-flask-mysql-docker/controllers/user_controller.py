@@ -2,6 +2,7 @@ from flask import jsonify, request
 from werkzeug.security import generate_password_hash
 from mysql.connector import IntegrityError
 from models.user_model import UserModel
+from middleware.auth_middleware import is_admin
 
 class UserController:
     @staticmethod
@@ -17,6 +18,9 @@ class UserController:
 
     @staticmethod
     def create():
+        if not is_admin():
+            return jsonify({'error': 'Unauthorized'}), 403
+            
         data = request.get_json(silent=True) or {}
         required = ['first_name','last_name','email','password','salary']
         if any(key not in data or data[key] in (None, '') for key in required):
