@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: flask_store_mysql
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password_123
+      MYSQL_DATABASE: store_db
+      MYSQL_USER: storeuser
+      MYSQL_PASSWORD: store_password_123
+
+    ports:
+      - "3307:3306"
+    volumes:
+      - store_mysql_data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+volumes:
+  store_mysql_data:

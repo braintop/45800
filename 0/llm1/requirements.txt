@@ -1,0 +1,4 @@
+Flask>=3.0,<4
+flask-cors>=4,<7
+python-dotenv>=1,<2
+google-genai>=1.0,<4
