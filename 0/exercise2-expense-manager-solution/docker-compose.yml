@@ -1,0 +1,46 @@
+# ============================================
+# MySQL לפרויקט AI Task Manager
+#
+# שם הקונטיינר והנתונים זהים לפרויקטים
+# הקודמים בקורס, ולכן זה אותו מסד בדיוק.
+# מי שכבר הריץ אותו, פשוט ימשיך לעבוד.
+#
+# הרצה:   docker compose up -d
+# בדיקה:  docker compose ps
+# עצירה:  docker compose stop
+#
+# אסור:   docker compose down -v
+#         הדגל -v מוחק את הנתונים.
+# ============================================
+
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: python_school_mysql
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password_change_me
+      MYSQL_DATABASE: school_db
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: app_password_change_me
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql_school_data:/var/lib/mysql
+
+      # רץ רק כשה-Volume ריק, כלומר בפעם הראשונה.
+      # אם המסד כבר קיים, הריצו את schema.sql ידנית.
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./sql/expenses.sql:/docker-entrypoint-initdb.d/02-expenses.sql:ro
+
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mysql_school_data:
