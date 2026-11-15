@@ -1,0 +1,14 @@
+{
+  "name": "tasks-api-neon",
+  "version": "1.0.0",
+  "description": "Tasks API for the n8n course (meeting 2) - Express + Neon PostgreSQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch --env-file=../.env server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  }
+}
